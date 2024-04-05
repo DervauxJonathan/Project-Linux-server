@@ -178,7 +178,7 @@ cd ~/Downloads
 tar xf mullvad-browser-linux64.tar.xf
 rm mullvad-browser-linux64.tar.xf
 mv mullvad-browser ~/
-cd ~/mullvad-browser
+cd ../mullvad-browser
 ./start-mullvad-browser-desktop --register-app
 ```
 Optional: Remote Assistance
