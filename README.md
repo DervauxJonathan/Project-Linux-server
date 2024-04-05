@@ -151,6 +151,19 @@ sudo systemctl stop systemd-resolved
 sudo systemctl disable systemd-resolved
 ```
 
+# Setting up the Firewall
+
+we'll install the Uncomplicated Firewall (UFW) and configure it to allow specific ports:
+
+## Install UFW
+```bash
+sudo apt install ufw
+sudo ufw enable
+```
+Allow ports 22 (SSH), 53 (DNS), 80 (HTTP), and 443 (HTTPS)
+```bash
+sudo ufw allow 22,53,80,443
+```
 
 # VM Client Side Configuration
 
