@@ -58,6 +58,8 @@ I wanted/needed to put a fixed IP to my server:
 cd /etc/netplan
 vim 00-installer-config.yaml
 
+```
+```bash
 network:
     ethernets: 
         eth0:
@@ -65,18 +67,22 @@ network:
             addresses: [192.168.1.1/24]
         eth1:
             dhcp4: True
+```
+```bash
 netplan apply
-
+```
 ## DHCP Server
 
 Since "isc-dhcp-server" was no longer supported by his vendors and been replaced by Kea, I decided to use Kea for this project.
 
+```bash
 apt-get install kea
 cd /etc/kea/
 mv kea-dhcp4.conf kea-dhcp4.bu
 touch kea-dhcp4.conf
+```
+```bash
 vim kea-dhcp4.conf
-
 {
     "Dhcp4": {
         "interfaces-config": {
@@ -120,24 +126,27 @@ vim kea-dhcp4.conf
         ]
     }
 }
+```
+```bash
 systemctl restart kea-dhcp4-server.service
 systemctl status kea-dhcp4-server.service
-
+```
 # DNS Server Configuration
 
 ## Step 1: Install Bind9
 
 ```bash
-sudo apt-get update
 sudo apt-get install -y bind9
-
 cd /etc/bind
+```
+```bash
 sudo vim named.conf.options
 
 forwarders {
     8.8.8.8;
 };
-
+```
+```bash
 sudo systemctl stop systemd-resolved
 sudo systemctl disable systemd-resolved
-
+```
