@@ -123,3 +123,21 @@ vim kea-dhcp4.conf
 systemctl restart kea-dhcp4-server.service
 systemctl status kea-dhcp4-server.service
 
+# DNS Server Configuration
+
+## Step 1: Install Bind9
+
+```bash
+sudo apt-get update
+sudo apt-get install -y bind9
+
+cd /etc/bind
+sudo vim named.conf.options
+
+forwarders {
+    8.8.8.8;
+};
+
+sudo systemctl stop systemd-resolved
+sudo systemctl disable systemd-resolved
+
