@@ -194,3 +194,15 @@ sudo apt install ufw
 sudo ufw allow 3389
 sudo ufw enable
 ```
+
+# To Do
+
+## Troubleshoot GLPI Error
+
+Investigate and resolve the error occurring in GLPI.
+
+## Weekly Backup of Configuration Files
+
+Perform weekly backups of configuration files for each service into a single compressed archive.
+
+
