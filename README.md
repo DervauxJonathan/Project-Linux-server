@@ -150,3 +150,47 @@ forwarders {
 sudo systemctl stop systemd-resolved
 sudo systemctl disable systemd-resolved
 ```
+
+
+# VM Client Side Configuration
+
+## Network Configuration
+
+Check Interface:
+
+```bash
+ip a
+sudo dhclient eth0
+```
+## Software Installation
+
+Install LibreOffice:
+```bash
+sudo apt-get install libreoffice
+```
+Install GIMP:
+```bash
+sudo apt-get install gimp
+```
+Mullvad Browser Setup
+```bash
+cd ~/Downloads
+tar xf mullvad-browser-linux64.tar.xf
+rm mullvad-browser-linux64.tar.xf
+mv mullvad-browser ~/
+cd ~/mullvad-browser
+./start-mullvad-browser-desktop --register-app
+```
+Optional: Remote Assistance
+```bash
+sudo apt install xrdp
+sudo systemctl enable xrdp
+sudo adduser xrdp ssl-cert
+sudo systemctl restart xrdp
+```
+Firewall Configuration
+```bash
+sudo apt install ufw
+sudo ufw allow 3389
+sudo ufw enable
+```
